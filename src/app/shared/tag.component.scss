@@ -1,0 +1,17 @@
+.tags {
+  display: flex;
+
+  .tag i {
+    color: #ffc107;
+  }
+
+  .links {
+    display: flex;
+    justify-content: space-evenly;
+
+    a {
+      color: #fff;
+      padding: 0 0.2rem;
+    }
+  }
+}

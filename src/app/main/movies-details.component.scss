@@ -1,0 +1,63 @@
+$desktop: 800px;
+
+@mixin desktop {
+  @media(min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+.details {
+  padding-top: 6rem;
+  text-align: center;
+  @include desktop() {
+    text-align: left;
+  }
+}
+
+.row {
+  padding: 0 3rem;
+}
+
+.img {
+  position: relative;
+  width: 100%;
+  height: 75vh;
+  img {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 7px #111;
+  }
+
+  app-round {
+    position: absolute;
+    top: -2rem;
+    left: -10px;
+  }
+}
+
+.content {
+  color: #fff;
+  width: 500px;
+  padding:  6rem 2rem;
+  h4 {
+    font-size: 3rem;
+    font-weight: bolder;
+    margin: 1rem 0;
+  }
+  .flex {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 1rem;
+    app-tag, app-time {
+      padding: 0 0.5rem 0 1rem;
+    }
+  }
+  p {
+    word-spacing: 2px;
+    letter-spacing: 1.5px;
+    line-height: 1.6;
+    margin: 0 1rem;
+  }
+}

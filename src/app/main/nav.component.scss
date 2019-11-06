@@ -1,0 +1,99 @@
+$colors: (
+  main-color: #353e4a,
+  sub-color: #ffc107,
+  pri-color: #292939
+);
+
+@function color($colorName) {
+  @return map-get($map: $colors, $key: $colorName );
+}
+
+$desktop: 1000px;
+
+@mixin desktop {
+  @media (#{$desktop}) {
+    @content;
+  }
+}
+
+header {
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  top: 0;
+  left: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  //background: color(pri-color);
+  color: #fff;
+
+  .logo {
+    margin: auto 0.5rem;
+    padding-top: 1rem;
+    cursor: pointer;
+    outline: none;
+    .logo-container {
+      color: color(sub-color);
+      font-weight: bolder;
+      font-size: 1.3rem;
+      padding: 0 0.5rem;
+    }
+
+    .logo-txt {
+      font-weight: bolder;
+      font-size: 1.3rem;
+      padding: 0 0.5rem;
+
+    }
+
+
+    #ligth {
+      font-weight: 50;
+      font-size: 2rem;
+    }
+
+  }
+
+  .right-content {
+    margin: auto 0.5rem;
+    @include desktop() {
+      display: block;
+    }
+
+    span {
+      margin: 0 1rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: bold;
+      outline: none;
+    }
+
+  }
+}
+
+.active {
+  color: color(sub-color);
+}
+
+.btn-bar {
+  cursor: pointer;
+  margin: 1rem;
+  z-index: 10;
+  i {
+    font-size: 2rem;
+    @include desktop() {
+      opacity: 0;
+    }
+  }
+
+}
+
+

@@ -1,0 +1,126 @@
+
+<div class="row body">
+  <div class="col-md-6 col-sm-12 land" *ngFor="let first of firstArr">
+    <img [src]="first.image.url" alt="">
+    <div class="content-one">
+      <app-circle [rating]="first.rating"></app-circle>
+      <h2>{{ first.title }}</h2>
+      <div class="flex">
+        <app-star [rating]="first.rating"></app-star>
+        <app-tag [tags]="first.genre"></app-tag>
+        <app-time [year]="first.releaseYear"></app-time>
+      </div>
+      <p>{{ first.description }}</p>
+    <button type="button" [routerLink]="['/Movies', first.objectId]">READ MORE</button>
+    </div>
+
+  </div>
+  <!-- </div> -->
+  <div class="col-md-6 col-sm-12">
+    <div class="row">
+      <div class="col-md-12 land-2" *ngFor="let second of secondArr">
+        <img [src]="second.image.url" alt="">
+        <div class="content-two">
+          <app-circle [rating]="second.rating"></app-circle>
+          <h3>{{ second.title }}</h3>
+          <div class="flex">
+            <app-star [rating]="second.rating"></app-star>
+            <app-tag [tags]="second.genre"></app-tag>
+            <app-time [year]="second.releaseYear"></app-time>
+          </div>
+          <button type="button" [routerLink]="['/Movies', second.objectId]">READ MORE</button>
+        </div>
+      </div>
+      <div class="col-md-12 land-2 none" *ngFor="let third of thirdArr">
+        <img [src]="third.image.url" alt="">
+        <div class="content-three">
+          <app-circle [rating]="third.rating"></app-circle>
+          <h3>{{ third.title }}</h3>
+          <div class="flex">
+            <app-star [rating]="third.rating"></app-star>
+            <app-tag [tags]="third.genre"></app-tag>
+            <app-time [year]="third.releaseYear"></app-time>
+          </div>
+          <button type="button" [routerLink]="['/Movies', third.objectId]">READ MORE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HIGHLIGHT SECTION -->
+<div class="heightlight">
+  <div class="heading">
+    <h3>Highlights today</h3>
+    <p>Be sure not to miss these reviews today</p>
+  </div>
+  <div class="list">
+    <div class="post" *ngFor="let list of moviesList">
+      <app-circle [rating]="list.rating"></app-circle>
+      <img id="img" [src]="list.image.url" alt="" [routerLink]="['/Movies', list.objectId]">
+      <div class="ratings">
+        <app-star [rating]="list.rating"></app-star>
+        <h5>{{ list.title }}</h5>
+        <app-tag [tags]="list.genre"></app-tag>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="land" *ngFor="let first of highPost">
+  <img [src]="first.image.url" alt="">
+  <div class="content-one">
+    <app-circle [rating]="first.rating"></app-circle>
+    <h2>{{ first.title }}</h2>
+    <div class="flex">
+      <app-star [rating]="first.rating"></app-star>
+      <app-tag [tags]="first.genre"></app-tag>
+      <app-time [year]="first.releaseYear"></app-time>
+    </div>
+    <p>{{ first.description }}</p>
+  <button id="buttons" type="button" [routerLink]="['/Movies', first.objectId]">READ MORE</button>
+  </div>
+</div>
+
+<!-- <app-showcase></app-showcase>
+
+  <!-- Movies Section -->
+<div class="movies-section">
+  <div class="heading">
+    <h3>New Releases</h3>
+    <p>Our most recently released reviews.</p>
+  </div>
+
+  <div class="poster">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="poster-one" *ngFor="let poster of mainPoster">
+          <app-circle [rating]="poster.rating"></app-circle>
+          <img id="img" [src]="poster.image.url" alt="" [routerLink]="['/Movies', poster.objectId]">
+          <div class="ratings">
+            <app-star [rating]="poster.rating"></app-star>
+            <h5>{{ poster.title }}</h5>
+            <app-tag [tags]="poster.genre"></app-tag>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-6" id="show" *ngFor="let list of posterList">
+            <app-circle [rating]="list.rating"></app-circle>
+            <img id="img" [src]="list.image.url" alt="" [routerLink]="['/Movies', list.objectId]">
+            <div class="ratings">
+              <app-star [rating]="list.rating"></app-star>
+              <h5>{{ list.title }}</h5>
+              <app-tag [tags]="list.genre"></app-tag>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<app-footer></app-footer>

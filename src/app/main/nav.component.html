@@ -1,0 +1,15 @@
+<header>
+  <nav>
+    <div class="logo" [routerLink]="['/Movies']">
+      <span class="logo-container">
+        <i class="fa fa-film" aria-hidden="true"></i>
+      </span>
+      <span class="logo-txt">Movie</span><span id="light">Checkout</span>
+    </div>
+
+    <div class="right-content">
+      <a><span [routerLink]="['/Movies']" routerLinkActive="active">Home</span></a>
+      <a><span [routerLink]="['/Favourite']">Favourite</span></a>
+    </div>
+  </nav>
+</header>

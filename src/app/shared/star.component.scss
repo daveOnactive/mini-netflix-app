@@ -1,0 +1,28 @@
+$colors: (
+  main-color: #353e4a,
+  sub-color: #ffc107,
+  pri-color: #292939
+);
+
+@function color($colorName) {
+  @return map-get($map: $colors, $key: $colorName );
+}
+
+$desktop: 740px;
+
+@mixin desktop {
+  @media (#{$desktop}) {
+    @content;
+  }
+}
+
+span {
+  color: color(sub-color);
+  font-size: 0.8rem;
+}
+
+.crop {
+  div {
+    width: 70px;
+  }
+}
