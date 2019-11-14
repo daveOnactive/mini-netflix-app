@@ -20,8 +20,13 @@ export class FavComponent implements OnInit {
   }
 
   addFav() {
-    this.fav.addToFav(this.favList);
-    this.inFav = true;
+    if (this.inFav) {
+      this.fav.removeFav(this.favList);
+      this.inFav = false;
+    } else {
+      this.fav.addToFav(this.favList);
+      this.inFav = true;
+    }
   }
 
 }
