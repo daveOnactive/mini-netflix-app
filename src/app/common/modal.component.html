@@ -1,0 +1,12 @@
+<div class="modals" *ngIf="show">
+  <div class="cancel">
+    <span (click)="closeModal.emit('end')">
+      <i class="fa fa-times-circle" aria-hidden="true"></i>
+    </span>
+    <div class="content" *ngFor="let list of results">
+      <p [routerLink]="['/Movies', list.id]">{{ list.title }}</p>
+    </div>
+  </div>
+  <span class="fa fa-spinner spinner" *ngIf="loading"></span>
+</div>
+

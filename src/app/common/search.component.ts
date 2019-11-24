@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesService } from 'src/app/shared/movies.service';
+import { MoviesService } from '../shared/movies.service';
 
 @Component({
-  selector: 'app-footer',
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss']
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.scss']
 })
-export class FooterComponent implements OnInit {
+export class SearchComponent implements OnInit {
   search: string;
   result: any;
   showModal;
@@ -30,5 +30,6 @@ export class FooterComponent implements OnInit {
       this.showModal = false;
       console.log($event);
   }
+
 
 }

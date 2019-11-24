@@ -1,17 +1,17 @@
-
+<app-search></app-search>
 <div class="row body">
   <div class="col-md-6 col-sm-12 land" *ngFor="let first of firstArr">
-    <img [src]="first.image.url" alt="">
+    <img [src]=image(first.backdrop_path) alt="">
     <div class="content-one">
-      <app-circle [rating]="first.rating"></app-circle>
+      <app-circle [rating]="first.vote_average"></app-circle>
       <h2>{{ first.title }}</h2>
       <div class="flex">
-        <app-star [rating]="first.rating"></app-star>
-        <app-tag [tags]="first.genre"></app-tag>
-        <app-time [year]="first.releaseYear"></app-time>
+        <app-star [rating]="first.vote_average"></app-star>
+        <app-tag [tags]="first.genre_ids"></app-tag>
+        <app-time [year]="first.release_date"></app-time>
       </div>
-      <p>{{ first.description }}</p>
-    <button type="button" [routerLink]="['/Movies', first.objectId]">READ MORE</button>
+      <p>{{ first.overview }}</p>
+    <button type="button" [routerLink]="['/Movies', first.id]">READ MORE</button>
     </div>
 
   </div>
@@ -19,29 +19,29 @@
   <div class="col-md-6 col-sm-12">
     <div class="row">
       <div class="col-md-12 land-2" *ngFor="let second of secondArr">
-        <img [src]="second.image.url" alt="">
+        <img [src]=image(second.backdrop_path) alt="">
         <div class="content-two">
-          <app-circle [rating]="second.rating"></app-circle>
+          <app-circle [rating]="second.vote_average"></app-circle>
           <h3>{{ second.title }}</h3>
           <div class="flex">
-            <app-star [rating]="second.rating"></app-star>
-            <app-tag [tags]="second.genre"></app-tag>
-            <app-time [year]="second.releaseYear"></app-time>
+            <app-star [rating]="second.vote_average"></app-star>
+            <app-tag [tags]="second.genre_ids"></app-tag>
+            <app-time [year]="second.release_date"></app-time>
           </div>
-          <button type="button" [routerLink]="['/Movies', second.objectId]">READ MORE</button>
+          <button type="button" [routerLink]="['/Movies', second.id]">READ MORE</button>
         </div>
       </div>
       <div class="col-md-12 land-2 none" *ngFor="let third of thirdArr">
-        <img [src]="third.image.url" alt="">
+        <img [src]=image(third.backdrop_path) alt="">
         <div class="content-three">
-          <app-circle [rating]="third.rating"></app-circle>
+          <app-circle [rating]="third.vote_average"></app-circle>
           <h3>{{ third.title }}</h3>
           <div class="flex">
-            <app-star [rating]="third.rating"></app-star>
-            <app-tag [tags]="third.genre"></app-tag>
-            <app-time [year]="third.releaseYear"></app-time>
+            <app-star [rating]="third.vote_average"></app-star>
+            <app-tag [tags]="third.genre_ids"></app-tag>
+            <app-time [year]="third.release_date"></app-time>
           </div>
-          <button type="button" [routerLink]="['/Movies', third.objectId]">READ MORE</button>
+          <button type="button" [routerLink]="['/Movies', third.id]">READ MORE</button>
         </div>
       </div>
     </div>
@@ -56,29 +56,29 @@
   </div>
   <div class="list">
     <div class="post" *ngFor="let list of moviesList">
-      <app-circle [rating]="list.rating"></app-circle>
-      <img id="img" [src]="list.image.url" alt="" [routerLink]="['/Movies', list.objectId]">
+      <app-circle [rating]="list.vote_average"></app-circle>
+      <img id="img" [src]=image(list.poster_path) alt="" [routerLink]="['/Movies', list.id]">
       <div class="ratings">
-        <app-star [rating]="list.rating"></app-star>
+        <app-star [rating]="list.vote_average"></app-star>
         <h5>{{ list.title }}</h5>
-        <app-tag [tags]="list.genre"></app-tag>
+        <app-tag [tags]="list.genre_ids"></app-tag>
       </div>
     </div>
   </div>
 
 </div>
 <div class="land" *ngFor="let first of highPost">
-  <img [src]="first.image.url" alt="">
+  <img [src]=image(first.backdrop_path) alt="">
   <div class="content-one">
-    <app-circle [rating]="first.rating"></app-circle>
+    <app-circle [rating]="first.vote_average"></app-circle>
     <h2>{{ first.title }}</h2>
     <div class="flex">
-      <app-star [rating]="first.rating"></app-star>
-      <app-tag [tags]="first.genre"></app-tag>
-      <app-time [year]="first.releaseYear"></app-time>
+      <app-star [rating]="first.vote_average"></app-star>
+      <app-tag [tags]="first.genre_ids"></app-tag>
+      <app-time [year]="first.release_date"></app-time>
     </div>
-    <p>{{ first.description }}</p>
-  <button id="buttons" type="button" [routerLink]="['/Movies', first.objectId]">READ MORE</button>
+    <p>{{ first.overview }}</p>
+  <button id="buttons" type="button" [routerLink]="['/Movies', first.id]">READ MORE</button>
   </div>
 </div>
 
@@ -95,12 +95,12 @@
     <div class="row">
       <div class="col-md-6">
         <div class="poster-one" *ngFor="let poster of mainPoster">
-          <app-circle [rating]="poster.rating"></app-circle>
-          <img id="img" [src]="poster.image.url" alt="" [routerLink]="['/Movies', poster.objectId]">
+          <app-circle [rating]="poster.vote_average"></app-circle>
+          <img id="img" [src]=image(poster.poster_path) alt="" [routerLink]="['/Movies', poster.id]">
           <div class="ratings">
-            <app-star [rating]="poster.rating"></app-star>
+            <app-star [rating]="poster.vote_average"></app-star>
             <h5>{{ poster.title }}</h5>
-            <app-tag [tags]="poster.genre"></app-tag>
+            <app-tag [tags]="poster.genre_ids"></app-tag>
           </div>
         </div>
       </div>
@@ -108,12 +108,12 @@
       <div class="col-md-6">
         <div class="row">
           <div class="col-md-6" id="show" *ngFor="let list of posterList">
-            <app-circle [rating]="list.rating"></app-circle>
-            <img id="img" [src]="list.image.url" alt="" [routerLink]="['/Movies', list.objectId]">
+            <app-circle [rating]="list.vote_average"></app-circle>
+            <img id="img" [src]=image(list.poster_path) alt="" [routerLink]="['/Movies', list.id]">
             <div class="ratings">
-              <app-star [rating]="list.rating"></app-star>
+              <app-star [rating]="list.vote_average"></app-star>
               <h5>{{ list.title }}</h5>
-              <app-tag [tags]="list.genre"></app-tag>
+              <app-tag [tags]="list.genre_ids"></app-tag>
             </div>
           </div>
         </div>

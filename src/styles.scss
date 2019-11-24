@@ -5,6 +5,7 @@
 body {
   background: #292939;
   overflow-x: hidden;
+  width: 100%;
 }
 
 ::-webkit-scrollbar {
@@ -24,4 +25,9 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #bb8d04;
+}
+
+
+app-root{
+  min-height: 100vh;
 }

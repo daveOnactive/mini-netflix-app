@@ -8,6 +8,7 @@ import { FavService } from '../shared/fav.service';
 })
 export class FavlistComponent implements OnInit {
   favlist: any[];
+  id = true;
   constructor(private fav: FavService) { }
 
   ngOnInit() {
@@ -17,6 +18,10 @@ export class FavlistComponent implements OnInit {
   delete(data) {
     this.fav.removeFav(data);
     this.favlist = this.fav.getAll();
+  }
+
+  image(data) {
+    return `https://image.tmdb.org/t/p/original${data}`;
   }
 
 }

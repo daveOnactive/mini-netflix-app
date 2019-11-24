@@ -23,15 +23,16 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
       this.moviesData = this.route.snapshot.data.data;
-      this.filterArr = this.filterMovies(this.moviesData.results);
-      this.firstArr = this.filterArr.splice(0, 1);
-      this.secondArr = this.filterArr.splice(1, 1);
-      this.thirdArr = this.filterArr.splice(2, 1);
+
+      this.firstArr = this.moviesData.results.slice(0, 1);
+      this.secondArr = this.moviesData.results.splice(1, 1);
+      this.thirdArr = this.moviesData.results.splice(2, 1);
 
       this.filteredMovies = this.filterMoviesByYear(this.moviesData.results);
 
       this.mainPoster = this.filteredMovies.splice(1, 1);
-      this.posterList = this.filteredMovies.splice(3, );
+      this.posterList = this.filteredMovies;
+
       this.moviesList = this.filterByRatings(this.moviesData.results);
 
       this.highPost = this.filterPoster(this.moviesData.results);
@@ -42,15 +43,23 @@ export class MainComponent implements OnInit {
   }
 
   filterMoviesByYear(data: any[]) {
-    return data.filter(movie => +movie.releaseYear >= 2010);
+    let list;
+    const filter = data.filter(movie => movie.vote_average > 5.5 && movie.vote_average < 7);
+
+    list = filter.splice(0, 5);
+    return list;
   }
 
   filterByRatings(data: any[]) {
-    return data.filter(movie => movie.rating < 7.3 && movie.rating > 6 );
+    return data.filter(movie => movie.vote_average > 7.2);
   }
 
   filterPoster(data: any[]) {
-    return data.filter(movie => movie.objectId === 'Il8PQYM3zG');
+    return data.filter(movie => movie.id === 420817);
+  }
+
+  image(data) {
+    return `https://image.tmdb.org/t/p/original${data}`;
   }
 
 }

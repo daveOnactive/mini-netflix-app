@@ -4,13 +4,14 @@
   </div>
   <div class="list">
     <div class="post" *ngFor="let list of favlist">
-      <app-circle [rating]="list.rating"></app-circle>
-      <img id="img" [src]="list.image.url" alt="" [routerLink]="['/Movies', list.objectId]">
+      <app-circle [rating]="list.vote_average"></app-circle>
+      <img id="img" [src]=image(list.poster_path) alt="" [routerLink]="['/Movies', list.id]">
       <div class="ratings">
         <div>
-          <app-star [rating]="list.rating"></app-star>
+          <app-star [rating]="list.vote_average"></app-star>
           <h5>{{ list.title }}</h5>
-          <app-tag [tags]="list.genre"></app-tag>
+          <app-tag [tags]="list.genres"
+                    [id]="id"></app-tag>
         </div>
         <div class="delete" (click)="delete(list)">
           <i class="fa fa-trash" aria-hidden="true"></i>

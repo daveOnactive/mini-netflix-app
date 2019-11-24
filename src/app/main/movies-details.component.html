@@ -1,18 +1,20 @@
-<div class="details" *ngFor="let movie of displayDetails">
+<div class="details">
+  <img id="poster" [src]=image(movie.backdrop_path) alt="">
   <div class="row">
     <div class="col-md-4 col-sm-12 img">
-      <img [src]="movie.image.url" alt="">
-      <app-round [rating]="movie.rating"></app-round>
+      <img [src]=image(movie.poster_path) alt="">
+      <app-round [rating]="movie.vote_average"></app-round>
     </div>
     <div class="col-md-8 col-sm-12 content">
       <h4>{{ movie.title }}</h4>
       <div class="flex">
-        <app-star [rating]="movie.rating"></app-star>
-        <app-tag [tags]="movie.genre"></app-tag>
-        <app-time [year]="movie.releaseYear"></app-time>
+        <app-star [rating]="movie.vote_average"></app-star>
+        <app-tag [tags]="movie.genres"
+                  [id]="id"></app-tag>
+        <app-time [year]="movie.release_date"></app-time>
         <app-fav [favList]="movie"></app-fav>
       </div>
-      <p>{{ movie.description }}</p>
+      <p>{{ movie.overview }}</p>
     </div>
   </div>
 </div>

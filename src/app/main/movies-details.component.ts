@@ -9,18 +9,19 @@ import { FavService } from '../shared/fav.service';
   styleUrls: ['./movies-details.component.scss']
 })
 export class MoviesDetailsComponent implements OnInit {
+  id = true;
   movieDetails: any;
-  displayDetails: any;
+  movie: any;
   constructor(private movies: MoviesService,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-      this.movieDetails = this.route.snapshot.data.data;
-      this.displayDetails = this.filterMovies(this.movieDetails.results);
+      this.movieDetails = this.route.snapshot.data.dataTwo;
+      this.movie = this.movieDetails;
   }
 
-  filterMovies(data: any[]) {
-    return data.filter(movie => movie.objectId === this.route.snapshot.paramMap.get('id'));
+  image(data) {
+    return `https://image.tmdb.org/t/p/original${data}`;
   }
 
 }

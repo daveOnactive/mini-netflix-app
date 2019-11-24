@@ -7,12 +7,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TagComponent implements OnInit {
   @Input() tags: any[];
+  @Input() id;
   geners: any[];
 
   constructor() { }
 
   ngOnInit() {
-    this.geners = this.tags.slice(0, 1);
+    this.geners = this.tags.splice(0, 2);
   }
 
 }

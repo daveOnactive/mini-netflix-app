@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -16,6 +17,10 @@ import { RoundComponent } from './shared/round.component';
 import { MoviesResolverService } from './shared/movies-resolver.service';
 import { FavComponent } from './shared/fav.component';
 import { FavlistComponent } from './main/favlist.component';
+import { GenrePipe } from './shared/genre.pipe';
+import { DetailsResolverService } from './common/details-resolver.service';
+import { ModalComponent } from './common/modal.component';
+import { SearchComponent } from './common/search.component';
 
 
 @NgModule({
@@ -32,18 +37,24 @@ import { FavlistComponent } from './main/favlist.component';
     RoundComponent,
     FavComponent,
     FavlistComponent,
+    GenrePipe,
+    ModalComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     RouterModule.forRoot(
       [
         { path: 'Movies', component: MainComponent, resolve: { data: MoviesResolverService } },
         { path: 'Movies/:id', component: MoviesDetailsComponent,
-        resolve: { data: MoviesResolverService } },
+        resolve: { dataTwo: DetailsResolverService } },
         { path: 'Favourite', component: FavlistComponent },
         { path: '', pathMatch: 'full', redirectTo: '/Movies' }
-      ]
+      ], {
+        scrollPositionRestoration: 'enabled'
+      }
     )
   ],
 

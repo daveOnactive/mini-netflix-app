@@ -1,6 +1,7 @@
 <div class="tags">
   <div class="tag"><i class="fa fa-tag" aria-hidden="true"></i></div>
   <div class="links" *ngFor="let tag of geners">
-    <a href="#">{{ tag }}</a>
+    <a href="#" *ngIf="!id">{{ tag | genre: tag }}</a>
+    <a href="#" *ngIf="id">{{ tag.name }}</a>
   </div>
 </div>

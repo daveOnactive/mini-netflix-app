@@ -1,0 +1,49 @@
+.container {
+  app-modal {
+    position: fixed;
+    right: 10rem;
+    bottom: 16rem;
+    z-index: 5;
+  }
+  .search {
+    height: 50px;
+    background: #292939;
+    display: flex;
+    padding: 0 0.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 3rem;
+    right: 40px;
+    z-index: 5;
+    box-shadow: 0 0 5px #ddd;
+    &:hover > input {
+      width: 180px;
+    }
+    input {
+      background: none;
+      outline: none;
+      border: none;
+      color: rgb(248, 241, 241);
+      text-align: center;
+      line-height: 20px;
+      font-size: 16px;
+      display: flex;
+      float: left;
+      width: 0px;
+      transition: 1s;
+    }
+
+    span {
+      width: 35px;
+	    height: 50px;
+      color: #ffc107;
+      border-radius: 50%;
+      font-size: 1.6rem;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      float: right;
+    }
+  }
+}
