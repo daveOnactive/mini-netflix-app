@@ -51,7 +51,9 @@ export class MainComponent implements OnInit {
   }
 
   filterByRatings(data: any[]) {
-    return data.filter(movie => movie.vote_average > 7.2);
+    let results;
+    results = data.filter(movie => movie.vote_average > 7);
+    return results.splice(0, 5);
   }
 
   filterPoster(data: any[]) {

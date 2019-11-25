@@ -21,6 +21,7 @@ import { GenrePipe } from './shared/genre.pipe';
 import { DetailsResolverService } from './common/details-resolver.service';
 import { ModalComponent } from './common/modal.component';
 import { SearchComponent } from './common/search.component';
+import { DetailsGuard } from './common/details.guard';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { SearchComponent } from './common/search.component';
       [
         { path: 'Movies', component: MainComponent, resolve: { data: MoviesResolverService } },
         { path: 'Movies/:id', component: MoviesDetailsComponent,
+        canActivate: [DetailsGuard],
         resolve: { dataTwo: DetailsResolverService } },
         { path: 'Favourite', component: FavlistComponent },
         { path: '', pathMatch: 'full', redirectTo: '/Movies' }
