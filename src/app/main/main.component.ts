@@ -18,6 +18,7 @@ export class MainComponent implements OnInit {
   posterList: any;
   moviesList: any;
   highPost: any;
+  show: boolean;
   constructor(private movies: MoviesService,
               private route: ActivatedRoute ) { }
 
@@ -57,7 +58,9 @@ export class MainComponent implements OnInit {
   }
 
   filterPoster(data: any[]) {
-    return data.filter(movie => movie.id === 420817);
+    let results;
+    results = data.filter(movie => movie.vote_average > 8);
+    return results.splice(0, 1);
   }
 
   image(data) {

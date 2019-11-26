@@ -84,9 +84,6 @@ $desktop: 600px;
     .flex {
       display: flex;
       justify-content: center;
-      align-items: center;
-      align-self: center;
-      text-align : center;
       @include desktop() {
         justify-content: flex-start;
       }

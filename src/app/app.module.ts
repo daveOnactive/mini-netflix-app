@@ -22,6 +22,7 @@ import { DetailsResolverService } from './common/details-resolver.service';
 import { ModalComponent } from './common/modal.component';
 import { SearchComponent } from './common/search.component';
 import { DetailsGuard } from './common/details.guard';
+import { Page404Component } from './common/page404.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { DetailsGuard } from './common/details.guard';
     GenrePipe,
     ModalComponent,
     SearchComponent,
+    Page404Component,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +55,7 @@ import { DetailsGuard } from './common/details.guard';
         canActivate: [DetailsGuard],
         resolve: { dataTwo: DetailsResolverService } },
         { path: 'Favourite', component: FavlistComponent },
+        { path: '404', component: Page404Component },
         { path: '', pathMatch: 'full', redirectTo: '/Movies' }
       ], {
         scrollPositionRestoration: 'enabled'

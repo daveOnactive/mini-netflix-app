@@ -43,7 +43,7 @@ export class MoviesService {
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
-      this.router.navigate(['/Movies']);
+      this.router.navigate(['/404']);
       return of(result as T);
     };
   }
