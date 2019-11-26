@@ -2,12 +2,14 @@
   <div class="footer">
     <div class="search">
       <p>Looking for something else? search our reviews:</p>
-      <div class="input">
-        <input type="text" placeholder="Try 'Avengers'" [(ngModel)]="search" #ctrl="ngModel" required>
-        <span (click)="searchMovie()">
-          <i class="fa fa-search" aria-hidden="true"></i>
-        </span>
-      </div>
+      <form (ngSubmit)="searchMovie()">
+        <div class="input">
+          <input type="text" name="input" placeholder="Try 'Avengers'" [(ngModel)]="search" #ctrl="ngModel" required>
+          <span (click)="searchMovie()">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </span>
+        </div>
+      </form>
       <app-modal
           [result]="result"
           [showModal]="showModal"
@@ -16,18 +18,20 @@
 
     <div class="social-icons">
       <h4>Connect Us</h4>
-      <a href="#" class="icon">
-        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+      <a href="https://www.linkedin.com/in/dave-chinweike-7b448418b/" class="icon" target="_blank">
+        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
       </a>
-      <a href="#" class="icon">
+      <a href="https://twitter.com/daveOnactive" class="icon" target="_blank">
         <i class="fa fa-twitter" aria-hidden="true"></i>
       </a>
-      <a href="#" class="icon">
+      <a href="https://github.com/daveOnactive" class="icon" target="_blank">
         <i class="fa fa-github" aria-hidden="true"></i>
       </a>
     </div>
 
     <div class="bottom">
+      <p>ALC Phase 2 Challenge 1 project, Created by <a href="https://github.com/daveOnactive" class="dave" target="_blank">Dave
+      </a></p>
       <p>Copyright &copy; Movie Checkout</p>
     </div>
   </div>
