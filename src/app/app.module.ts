@@ -23,6 +23,7 @@ import { ModalComponent } from './common/modal.component';
 import { SearchComponent } from './common/search.component';
 import { DetailsGuard } from './common/details.guard';
 import { Page404Component } from './common/page404.component';
+import { HighlightComponent } from './common/highlight.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { Page404Component } from './common/page404.component';
     ModalComponent,
     SearchComponent,
     Page404Component,
+    HighlightComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,14 +52,26 @@ import { Page404Component } from './common/page404.component';
     HttpClientModule,
     RouterModule.forRoot(
       [
-        { path: 'Movies', component: MainComponent, resolve: { data: MoviesResolverService } },
-        { path: 'Movies/:id', component: MoviesDetailsComponent,
-        canActivate: [DetailsGuard],
-        resolve: { dataTwo: DetailsResolverService } },
-        { path: 'Favourite', component: FavlistComponent },
-        { path: '404', component: Page404Component },
-        { path: '', pathMatch: 'full', redirectTo: '/Movies' }
-      ], {
+        {
+          path: 'Movies', component: MainComponent,
+          resolve: { data: MoviesResolverService }
+        },
+        {
+          path: 'Movies/:id', component: MoviesDetailsComponent,
+          canActivate: [DetailsGuard],
+          resolve: { dataTwo: DetailsResolverService }
+       },
+       {
+         path: 'Favourite', component: FavlistComponent
+        },
+        {
+          path: '404', component: Page404Component
+        },
+        {
+          path: '', pathMatch: 'full', redirectTo: '/Movies'
+        }
+      ],
+      {
         scrollPositionRestoration: 'enabled'
       }
     )
@@ -66,6 +80,4 @@ import { Page404Component } from './common/page404.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-
- }
+export class AppModule { }

@@ -50,24 +50,7 @@
 </div>
 
 <!-- HIGHLIGHT SECTION -->
-<div class="heightlight">
-  <div class="heading">
-    <h3>Highlights today</h3>
-    <p>Be sure not to miss these reviews today</p>
-  </div>
-  <div class="list">
-    <div class="post" *ngFor="let list of moviesList">
-      <app-circle [rating]="list.vote_average"></app-circle>
-      <img id="img" [src]=image(list.poster_path) alt="" [routerLink]="['/Movies', list.id]">
-      <div class="ratings">
-        <app-star [rating]="list.vote_average"></app-star>
-        <h5>{{ list.title }}</h5>
-        <app-tag [tags]="list.genre_ids"></app-tag>
-      </div>
-    </div>
-  </div>
-
-</div>
+<app-highlight [moviesList]="moviesList"></app-highlight>
 <div class="land" *ngFor="let first of highPost">
   <img [src]=image(first.backdrop_path) alt="">
   <div class="content-one">

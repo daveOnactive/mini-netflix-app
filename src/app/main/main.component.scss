@@ -26,6 +26,15 @@ $desktop: 600px;
     }
   }
 }
+
+main {
+  overflow-x: hidden;
+  overflow-y: auto;
+  @include desktop() {
+    overflow: visible;
+
+  }
+}
 .land {
   width: auto;
   height: 100%;
@@ -34,12 +43,14 @@ $desktop: 600px;
   border: 1px solid #000;
   z-index: 1;
   position: relative;
-
   img {
     width: 100%;
-    height: 100vh;
+    height: 60vh;
     filter: brightness(50%);
     outline: none;
+    @include desktop() {
+      height: 100vh;
+    }
   }
 
   .content-one {
@@ -107,9 +118,12 @@ $desktop: 600px;
 
   img {
     width: 100%;
-    height: 50vh;
+    height: 40vh;
     filter: brightness(50%);
     outline: none;
+    @include desktop() {
+      height: 50vh;
+    }
   }
 
   .content-two,
@@ -265,48 +279,6 @@ $desktop: 600px;
   }
   h5 {
     color: #fff;
-  }
-}
-
-.list {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  @include desktop() {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-  }
-  .post {
-    width: 200px;
-    height: 100%;
-    position: relative;
-    margin: 1rem 0;
-    cursor: pointer;
-    transition: transform .3;
-    &:hover {
-      transform: scale(1.05);
-    }
-    .ratings {
-      margin: 0.5rem auto;
-      margin-bottom: 2rem;
-    }
-    app-circle {
-      position: absolute;
-      top: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    #img {
-      width: 100%;
-      height: 300px;
-      border-radius: 8px;
-      box-shadow: 0 0 8px #111;
-      outline: none;
-    }
-    h5 {
-      color: #fff;
-    }
   }
 }
 #buttons {

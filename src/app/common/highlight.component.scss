@@ -1,0 +1,121 @@
+
+$desktop: 600px;
+$custom: 1200px;
+
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+@mixin custom {
+  @media (min-width: #{$custom}) {
+    @content;
+  }
+}
+.heading {
+  text-align: center;
+  color: #ffff;
+  margin: 1rem 0;
+  position: relative;
+  h3 {
+    font-size: 3rem;
+    font-weight: bolder;
+  }
+
+  p {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+  }
+}
+
+.list {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 80vh;
+  @include desktop() {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+  }
+  .post {
+    width: 200px;
+    height: 100%;
+    position: relative;
+    margin: 1rem 0;
+    cursor: pointer;
+    transition: transform .3;
+    &:hover {
+      transform: scale(1.05);
+    }
+    .ratings {
+      margin: 0.5rem auto;
+      margin-bottom: 2rem;
+    }
+    app-circle {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    #img {
+      width: 100%;
+      height: 300px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px #111;
+      outline: none;
+    }
+    h5 {
+      color: #fff;
+    }
+  }
+}
+
+.active {
+  background: #fff !important;
+  color: #4a4a6e !important;
+}
+
+.button {
+  @include custom() {
+    position: absolute;
+    top: 1rem;
+    right: 4rem;
+  }
+  .btn {
+    background: #4a4a6e;
+    color: #fff;
+    margin: 0.5rem 0.7rem;
+    border-radius: 7px;
+    font-weight: bold;
+    &:hover {
+      background: #fff !important;
+      color: #4a4a6e !important;
+    }
+  }
+}
+
+.spinner {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  z-index: 10;
+  font-size: 150%;
+  transform: translate(-50%, -50%);
+  color: #ffc107;
+}
+
+.fa-spinner {
+  animation: spin 1000ms infinite linear;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}

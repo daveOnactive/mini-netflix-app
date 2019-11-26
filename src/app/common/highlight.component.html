@@ -1,0 +1,25 @@
+<div class="heightlight">
+  <div class="heading">
+    <h3>Highlights today</h3>
+    <p>Be sure not to miss these reviews today</p>
+    <div class="button">
+      <button class="btn" [class.active]="active==='popular'" (click)="popular()">Popular</button>
+      <button class="btn" [class.active]="active==='upComing'" (click)="upComing()">Upcoming</button>
+      <button class="btn" [class.active]="active==='nowPlaying'" (click)="nowPlaying()">Now playing</button>
+    </div>
+  </div>
+  <div class="list">
+    <div class="spin">
+      <span class="fa fa-spinner spinner" *ngIf="loading"></span>
+    </div>
+    <div class="post" *ngFor="let list of movieList">
+      <app-circle [rating]="list.vote_average"></app-circle>
+      <img id="img" [src]=image(list.poster_path) alt="" [routerLink]="['/Movies', list.id]">
+      <div class="ratings">
+        <app-star [rating]="list.vote_average"></app-star>
+        <h5>{{ list.title }}</h5>
+        <app-tag [tags]="list.genre_ids"></app-tag>
+      </div>
+    </div>
+  </div>
+</div>

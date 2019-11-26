@@ -1,4 +1,4 @@
-$desktop: 800px;
+$desktop: 740px;
 
 @mixin desktop {
   @media(min-width: #{$desktop}) {
@@ -11,6 +11,8 @@ $desktop: 800px;
   text-align: center;
   min-height: 100vh;
   width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
   @include desktop() {
     text-align: left;
   }
@@ -23,7 +25,10 @@ $desktop: 800px;
 .img {
   position: relative;
   width: 100%;
-  height: 75vh;
+  height: 55vh;
+  @include desktop() {
+    height: 75vh;
+  }
   img {
     width: 100%;
     height: 100%;
@@ -43,6 +48,7 @@ $desktop: 800px;
   color: #fff;
   width: 100%;
   padding:  6rem 2rem;
+
   @include desktop() {
     width: 500px;
   }
@@ -74,7 +80,10 @@ $desktop: 800px;
   position: absolute;
   top: 0;
   left: 0;
-  height: 100vh;
+  min-height: 75vh;
   width: 100%;
-  filter: brightness(28%);
+  filter: brightness(50%);
+  @include desktop() {
+    height: 100vh;
+  }
 }
