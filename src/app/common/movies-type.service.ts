@@ -12,10 +12,16 @@ export class MoviesTypeService {
   constructor(private http: HttpClient,
               private router: Router) { }
   upcomingUrl = 'https://api.themoviedb.org/3/movie/upcoming?api_key=b187ef6c8cea760c0da207949305edb9&language=en-US&page=1';
+  nowplayingUrl = 'https://api.themoviedb.org/3/movie/now_playing?api_key=b187ef6c8cea760c0da207949305edb9&language=en-US&page=1';
 
-  getMovies(): Observable<any[]> {
-    return this.http.get<any[]>(this.upcomingUrl)
-      .pipe(catchError(this.handleError<any[]>('getMovies', [])))
+  getMovies(type: string): Observable<any[]> {
+    if (type === 'upcoming') {
+      return this.http.get<any[]>(this.upcomingUrl)
+      .pipe(catchError(this.handleError<any[]>('getMovies', [])));
+    } else if (type === 'nowplaying') {
+      return this.http.get<any[]>(this.nowplayingUrl)
+      .pipe(catchError(this.handleError<any[]>('getMovies', [])));
+    }
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

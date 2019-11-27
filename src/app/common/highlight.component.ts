@@ -29,7 +29,7 @@ export class HighlightComponent implements OnInit, OnChanges {
     this.movieList = [];
     this.active = 'upComing';
     this.loading = true;
-    this.getData(this.movies.getMovies());
+    this.getData(this.movies.getMovies('upcoming'));
   }
 
   popular() {
@@ -38,7 +38,10 @@ export class HighlightComponent implements OnInit, OnChanges {
   }
 
   nowPlaying() {
+    this.movieList = [];
     this.active = 'nowPlaying';
+    this.loading = true;
+    this.getData(this.movies.getMovies('nowplaying'));
   }
 
   filterData(data: any) {

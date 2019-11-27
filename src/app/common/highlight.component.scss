@@ -35,6 +35,7 @@ $custom: 1200px;
   align-items: center;
   flex-direction: column;
   height: 80vh;
+  margin-top: 6rem;
   @include desktop() {
     display: flex;
     justify-content: space-evenly;
