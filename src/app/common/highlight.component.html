@@ -4,8 +4,8 @@
     <p>Be sure not to miss these reviews today</p>
     <div class="button">
       <button class="btn" [class.active]="active==='popular'" (click)="popular()">Popular</button>
-      <button class="btn" [class.active]="active==='upComing'" (click)="upComing()">Upcoming</button>
-      <button class="btn" [class.active]="active==='nowPlaying'" (click)="nowPlaying()">Now playing</button>
+      <button class="btn" [class.active]="active==='upcoming'" (click)="upComing()">Upcoming</button>
+      <button class="btn" [class.active]="active==='nowplaying'" (click)="nowPlaying()">Now playing</button>
     </div>
   </div>
   <div class="list">
@@ -22,4 +22,5 @@
       </div>
     </div>
   </div>
+  <button id="button" [routerLink]="['/type', active]">Show More <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></button>
 </div>

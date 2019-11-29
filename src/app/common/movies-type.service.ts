@@ -13,6 +13,7 @@ export class MoviesTypeService {
               private router: Router) { }
   upcomingUrl = 'https://api.themoviedb.org/3/movie/upcoming?api_key=b187ef6c8cea760c0da207949305edb9&language=en-US&page=1';
   nowplayingUrl = 'https://api.themoviedb.org/3/movie/now_playing?api_key=b187ef6c8cea760c0da207949305edb9&language=en-US&page=1';
+  popularUrl = 'https://api.themoviedb.org/3/movie/popular?api_key=b187ef6c8cea760c0da207949305edb9&language=en-US&page=1';
 
   getMovies(type: string): Observable<any[]> {
     if (type === 'upcoming') {
@@ -20,6 +21,9 @@ export class MoviesTypeService {
       .pipe(catchError(this.handleError<any[]>('getMovies', [])));
     } else if (type === 'nowplaying') {
       return this.http.get<any[]>(this.nowplayingUrl)
+      .pipe(catchError(this.handleError<any[]>('getMovies', [])));
+    } else if (type === 'popular') {
+      return this.http.get<any[]>(this.popularUrl)
       .pipe(catchError(this.handleError<any[]>('getMovies', [])));
     }
   }

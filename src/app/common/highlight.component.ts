@@ -27,9 +27,9 @@ export class HighlightComponent implements OnInit, OnChanges {
 
   upComing() {
     this.movieList = [];
-    this.active = 'upComing';
+    this.active = 'upcoming';
     this.loading = true;
-    this.getData(this.movies.getMovies('upcoming'));
+    this.getData(this.movies.getMovies(this.active));
   }
 
   popular() {
@@ -39,14 +39,14 @@ export class HighlightComponent implements OnInit, OnChanges {
 
   nowPlaying() {
     this.movieList = [];
-    this.active = 'nowPlaying';
+    this.active = 'nowplaying';
     this.loading = true;
-    this.getData(this.movies.getMovies('nowplaying'));
+    this.getData(this.movies.getMovies(this.active));
   }
 
   filterData(data: any) {
     let result;
-    result = data.results.filter(item => item.vote_average > 6);
+    result = data.results.filter(item => item.vote_average > 7);
 
     return result.splice(0, 5);
   }

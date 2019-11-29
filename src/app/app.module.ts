@@ -24,6 +24,8 @@ import { SearchComponent } from './common/search.component';
 import { DetailsGuard } from './common/details.guard';
 import { Page404Component } from './common/page404.component';
 import { HighlightComponent } from './common/highlight.component';
+import { MovieTypeModule } from './movie-type/movie-type.module';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -31,16 +33,11 @@ import { HighlightComponent } from './common/highlight.component';
     AppComponent,
     MainComponent,
     NavComponent,
-    StarComponent,
-    CircleComponent,
-    TagComponent,
-    TimeComponent,
     FooterComponent,
     MoviesDetailsComponent,
     RoundComponent,
     FavComponent,
     FavlistComponent,
-    GenrePipe,
     ModalComponent,
     SearchComponent,
     Page404Component,
@@ -50,6 +47,8 @@ import { HighlightComponent } from './common/highlight.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    MovieTypeModule,
+    SharedModule,
     RouterModule.forRoot(
       [
         {

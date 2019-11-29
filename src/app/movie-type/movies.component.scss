@@ -14,22 +14,19 @@ $custom: 1200px;
   }
 }
 
+
 .heightlight {
-  margin-bottom: 9rem;
+  margin-top: 4rem;
 }
 .heading {
   text-align: center;
   color: #ffff;
   margin: 1rem 0;
   position: relative;
+  margin: 1rem 0;
   h3 {
     font-size: 3rem;
     font-weight: bolder;
-  }
-
-  p {
-    margin: 1rem 0;
-    font-size: 1.1rem;
   }
 }
 
@@ -39,13 +36,12 @@ $custom: 1200px;
   align-items: center;
   flex-direction: column;
   // height: 80vh;
-  margin-top: 2rem;
+  // margin-top: 6rem;
   @include desktop() {
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-top: 6rem;
   }
   .post {
     width: 200px;
@@ -75,74 +71,6 @@ $custom: 1200px;
       outline: none;
     }
     h5 {
-      color: #fff;
-    }
-  }
-}
-
-.active {
-  background: #fff !important;
-  color: #4a4a6e !important;
-}
-
-.button {
-  @include custom() {
-    position: absolute;
-    top: 1rem;
-    right: 4rem;
-  }
-  .btn {
-    background: #4a4a6e;
-    color: #fff;
-    margin: 0.5rem 0.7rem;
-    border-radius: 7px;
-    font-weight: bold;
-    &:hover {
-      background: #fff !important;
-      color: #4a4a6e !important;
-    }
-  }
-}
-
-.spinner {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  z-index: 10;
-  font-size: 150%;
-  transform: translate(-50%, -50%);
-  color: #ffc107;
-}
-
-.fa-spinner {
-  animation: spin 1000ms infinite linear;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(359deg);
-  }
-}
-
-#button {
-  background: none;
-  border: 2px solid #ffc107;
-  border-radius: 10px;
-  padding: .3rem .5rem;
-  float: right;
-  margin: 1rem 3rem;
-  color: #fff;
-  // font-weight: bold;
-  i {
-    color: #ffc107
-  }
-
-  &:hover {
-    background: #ffc107;
-    i {
       color: #fff;
     }
   }

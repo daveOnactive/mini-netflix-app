@@ -1,0 +1,18 @@
+<div class="heightlight">
+  <div class="heading">
+    <h3>{{ heading }}</h3>
+    <!-- <p>Be sure not to miss these reviews today</p> -->
+  </div>
+  <div class="list">
+    <div class="post" *ngFor="let list of movieList">
+      <app-circle [rating]="list.vote_average"></app-circle>
+      <img id="img" [src]=image(list.poster_path) alt="" [routerLink]="['/Movies', list.id]">
+      <div class="ratings">
+        <app-star [rating]="list.vote_average"></app-star>
+        <h5>{{ list.title }}</h5>
+        <app-tag [tags]="list.genre_ids"></app-tag>
+      </div>
+    </div>
+  </div>
+</div>
+
